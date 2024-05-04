@@ -15,7 +15,7 @@ tasks = {
 }
 
 # Define marker for the cell indicating the duration
-duration_marker = '^'
+duration_marker = '^===='
 
 # Create Directed Acyclic Graph (DAG)
 G = nx.DiGraph()
