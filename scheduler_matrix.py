@@ -3,15 +3,19 @@ import pandas as pd
 
 # Define tasks with durations and dependencies
 tasks = {
-    'Task 1': {'duration': 5, 'dependencies': []},
-    'Task 2': {'duration': 3, 'dependencies': ['Task 1']},
-    'Task 3': {'duration': 4, 'dependencies': ['Task 1']},
-    'Task 4': {'duration': 2, 'dependencies': ['Task 2', 'Task 3']},
-    'Task 5': {'duration': 6, 'dependencies': ['Task 4']}
+    'Legal Approval': {'duration': 3, 'dependencies': []},
+    'Requirements Gathering': {'duration': 3, 'dependencies': ['Legal Approval']},
+    'Design': {'duration': 7, 'dependencies': ['Requirements Gathering']},
+    'Frontend Development': {'duration': 10, 'dependencies': ['Design']},
+    'Website Approval': {'duration': 5, 'dependencies': ['Frontend Development']},
+    'Marketing Feasibility': {'duration': 10, 'dependencies': ['Website Approval']},
+    'Backend Development': {'duration': 10, 'dependencies': ['Marketing Feasibility']},
+    'Testing': {'duration': 5, 'dependencies': ['Backend Development']},
+    'Deployment': {'duration': 1, 'dependencies': ['Testing']}
 }
 
 # Define marker for the cell indicating the duration
-duration_marker = '&'
+duration_marker = '^'
 
 # Create Directed Acyclic Graph (DAG)
 G = nx.DiGraph()
